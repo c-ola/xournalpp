@@ -857,12 +857,17 @@ bool EditSelection::handleEdgePan(EditSelection* self) {
 
     // Helper function to compute scroll amount for a single dimension, based on visible region and selection bbox
 <<<<<<< HEAD
+<<<<<<< HEAD
     const auto computeScrollAmt = [&](double visMin, double visLen, double bboxMin, double bboxLen, double layoutSize,
                                       double relMousePos) -> double {
 =======
     const auto computeScrollAmt = [&](double visMin, double visLen, double bboxMin, double bboxLen,
                                       double layoutSize, double relMousePos) -> double {
 >>>>>>> f362712a (Changed edge panning on large selections)
+=======
+    const auto computeScrollAmt = [&](double visMin, double visLen, double bboxMin, double bboxLen, double layoutSize,
+                                      double relMousePos) -> double {
+>>>>>>> 28e1ec16 (Ran clang-format on EdgeSelection.cpp)
         const bool belowMin = bboxMin < visMin;
         const bool aboveMax = bboxMin + bboxLen > visMin + visLen;
         const double visMax = visMin + visLen;
@@ -879,12 +884,17 @@ bool EditSelection::handleEdgePan(EditSelection* self) {
         int panDir = 0;
 
 <<<<<<< HEAD
+<<<<<<< HEAD
         // If the selection is larger than the view, scroll based on mouse position relative to the center of the
         // visible view Otherwise calculate bonus scroll amount due to proportion of selection out of view.
 =======
         // If the selection is larger than the view, scroll based on mouse position relative to the center of the visible view
         // Otherwise calculate bonus scroll amount due to proportion of selection out of view.
 >>>>>>> f362712a (Changed edge panning on large selections)
+=======
+        // If the selection is larger than the view, scroll based on mouse position relative to the center of the
+        // visible view Otherwise calculate bonus scroll amount due to proportion of selection out of view.
+>>>>>>> 28e1ec16 (Ran clang-format on EdgeSelection.cpp)
         if (isLargeSelection) {
             mult = maxMult * std::abs(mouseDiff) / (visLen);
             if (mouseDiff > 0.1 * visLen / 2.0) {
@@ -893,11 +903,15 @@ bool EditSelection::handleEdgePan(EditSelection* self) {
                 panDir = -1;
             }
 <<<<<<< HEAD
+<<<<<<< HEAD
         } else {
 =======
         }
         else {
 >>>>>>> f362712a (Changed edge panning on large selections)
+=======
+        } else {
+>>>>>>> 28e1ec16 (Ran clang-format on EdgeSelection.cpp)
             if (aboveMax) {
                 panDir = 1;
                 mult = maxMult * std::min(bboxLen, bboxMax - visMax) / bboxLen;
@@ -929,14 +943,20 @@ bool EditSelection::handleEdgePan(EditSelection* self) {
     const auto visRect = layout->getVisibleRect();
     const auto bbox = self->getBoundingBoxInView();
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> 28e1ec16 (Ran clang-format on EdgeSelection.cpp)
     const auto layoutScrollX =
             computeScrollAmt(visRect.x, visRect.width, bbox.x, bbox.width, layoutWidth, self->relMousePosX);
     const auto layoutScrollY =
             computeScrollAmt(visRect.y, visRect.height, bbox.y, bbox.height, layoutHeight, self->relMousePosY);
+<<<<<<< HEAD
 =======
     const auto layoutScrollX = computeScrollAmt(visRect.x, visRect.width, bbox.x, bbox.width, layoutWidth, self->relMousePosX);
     const auto layoutScrollY = computeScrollAmt(visRect.y, visRect.height, bbox.y, bbox.height, layoutHeight, self->relMousePosY);
 >>>>>>> f362712a (Changed edge panning on large selections)
+=======
+>>>>>>> 28e1ec16 (Ran clang-format on EdgeSelection.cpp)
     const auto translateX = layoutScrollX / zoom;
     const auto translateY = layoutScrollY / zoom;
 
